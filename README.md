@@ -1,2 +1,2 @@
-# secret
+# Nazo
 Nazo No Murasamejo
