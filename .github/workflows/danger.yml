@@ -1,0 +1,22 @@
+on:
+  - workflow_dispatch
+name: Danger
+jobs:
+  danger:
+    name: Danger
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Ruby のセットアップ
+        uses: actions/setup-ruby@v1.96.0
+        with:
+            ruby-version: '2.6.7'
+            architecture: 'x64'
+      - name: Danger をインストールする
+        run: |
+          gem install danger
+      - name: Danger を実行する
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: danger
+
